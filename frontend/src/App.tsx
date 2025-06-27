@@ -7,7 +7,6 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const res = await fetch("http://localhost:3001/api/properties");
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/properties`);
       const data = await res.json();
       setProperties(data);
@@ -16,14 +15,16 @@ const App = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center text-blue-700">
-        Property Listings
-      </h1>
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {properties.map((property) => (
-          <PropertyCard key={property.id} property={property} />
-        ))}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-10 px-4">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold mb-10 text-center text-blue-800 drop-shadow-md">
+          🏠 Featured Property Listings
+        </h1>
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {properties.map((property) => (
+            <PropertyCard key={property.id} property={property} />
+          ))}
+        </div>
       </div>
     </div>
   );
