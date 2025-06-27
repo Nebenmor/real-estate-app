@@ -7,7 +7,8 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:3001/api/properties");
+      // const res = await fetch("http://localhost:3001/api/properties");
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/properties`);
       const data = await res.json();
       setProperties(data);
     };
