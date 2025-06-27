@@ -115,6 +115,7 @@ CREATE TABLE properties (
   image_url TEXT,
   created_at DATETIME
 );
+
 Then insert seed data:
 
 
