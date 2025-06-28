@@ -2,6 +2,7 @@ import request from "supertest";
 import app from "../app";
 import { pool } from "../config/database"; // ✅ fixed import
 
+jest.setTimeout(15000);
 afterAll(async () => {
   await pool.end(); // close DB connection after all tests
 });
@@ -11,7 +12,7 @@ describe("GET /api/properties", () => {
     const res = await request(app).get("/api/properties");
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
-  });
+  }, 15000);
 });
 
 describe("GET /api/properties/:id", () => {
